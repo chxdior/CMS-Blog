@@ -1,0 +1,59 @@
+:root{
+    --header-color: #231010;
+    --text-color: #D9EAD3;
+}
+
+body{
+    background-color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-color);
+}
+
+.text {
+    color: var(--text-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    background-color: var(--header-color);
+}
+
+.headerTitle {
+    background-color: var(--text-color);
+    color: var(--header-color);
+    box-shadow: 5px 5px #A7A7A7;
+    border-radius: 5px;
+}
+
+.post {
+    border: 2px solid var(--header-color);
+    color: var(--header-color);
+}
+
+div p {
+    font-weight: 500;
+}
+
+header p {
+    opacity: 50%;
+}
+
+.commentInput {
+    height: 5rem
+}
+
+.myPost {
+    background-color: grey;
+    border-radius: 5px;
+}
+
+#postContainer {
+    max-height: 80vh;
+    overflow-y: scroll;
+}
