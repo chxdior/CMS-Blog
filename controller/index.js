@@ -1,26 +1,13 @@
 const router = require('express').Router();
-const { withAuth } = require('../utils/auth');
-const { User } = require('../models');
 
-router.get('/', withAuth, async(req, res) => {
-    
-    try {
-        const user = await User.findOne({
-            where: {username: req.session.username},
-        })
+const homeRoutes = require('./home');
+const userRoutes = require('./user');
+const dashboardRoutes = require('./dashboard');
+const postRoutes = require('./post')
 
-        const posts = await user.getPosts({raw: true});
-
-        res.render('dashboard', {
-            headerTitle: 'Your Dashboard',
-            posts: posts,
-            loggedIn: req.session.loggedIn,
-        })
-    } catch (error) {
-        console.log(error);
-        res.status(500).json('Internal server error');
-        return;
-    }
-});
+router.use('/home', homeRoutes);
+router.use('/user', userRoutes);
+router.use('/dashboard', dashboardRoutes);
+router.use('/post', postRoutes);
 
 module.exports = router;
